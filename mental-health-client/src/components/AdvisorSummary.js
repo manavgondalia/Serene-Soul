@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const AdvisorSummary = ({ data }) => {
 	const [csvData, setCsvData] = useState("");
+	const [searchRollNumber, setSearchRollNumber] = useState("");
+	const [filteredData, setFilteredData] = useState(data);
 
 	const generateCsv = () => {
 		// Convert data to CSV format
@@ -13,6 +15,14 @@ const AdvisorSummary = ({ data }) => {
 		setCsvData(encodeURI(csvContent));
 	};
 
+	const handleSearchChange = (event) => {
+		setSearchRollNumber(event.target.value);
+		const filtered = data.filter((student) =>
+			student.rollNumber.toString().includes(event.target.value)
+		);
+		setFilteredData(filtered);
+	};
+
 	return (
 		<div className="mx-auto max-w-max flex flex-col justify-center overflow-auto font-grostek text-center">
 			<button
@@ -21,6 +31,15 @@ const AdvisorSummary = ({ data }) => {
 			>
 				Export as CSV
 			</button>
+			<div className="mb-4">
+				<input
+					type="text"
+					placeholder="Search by Roll Number"
+					value={searchRollNumber}
+					onChange={handleSearchChange}
+					className="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+				/>
+			</div>
 			<table className="table-auto">
 				<thead>
 					<tr>
@@ -35,7 +54,7 @@ const AdvisorSummary = ({ data }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((student) => (
+					{filteredData.map((student) => (
 						<tr key={student.rollNumber}>
 							<td className="border px-4 py-2">{student.rollNumber}</td>
 							{Object.values(student)
