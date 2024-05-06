@@ -1,7 +1,8 @@
 import AdvisorSummary from "./components/AdvisorSummary";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
-import QuestionCard from "./components/Question";
+import QuestionCard from "./components/QuestionCard";
+import QuestionIterator from "./components/QuestionIterator";
 import Register from "./components/Register";
 
 const summaryData = [
@@ -15,12 +16,10 @@ function App() {
 	return (
 		<div>
 			<Navbar />
-			{/* <QuestionCard
-				question={"I think I have a particular meaning and purpose of my life."}
-			/> */}
-			{/* <Register /> */}
+			<Register />
 			{/* <Login /> */}
-			<AdvisorSummary data={summaryData} />
+			{/* <AdvisorSummary data={summaryData} /> */}
+			{/* <QuestionIterator /> */}
 		</div>
 	);
 }
