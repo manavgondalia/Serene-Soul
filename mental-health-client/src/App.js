@@ -11,6 +11,7 @@ import StudentRegister from "./components/StudentRegister";
 import ViewMyResponse from "./components/ViewMyResponse";
 import { Route, Routes } from "react-router-dom";
 import FARegister from "./components/FARegister";
+import { Toaster } from "react-hot-toast";
 
 // const summaryData = [
 // 	{ rollNumber: 1, question1: 4, question2: 3, question3: 5 },
@@ -22,6 +23,7 @@ import FARegister from "./components/FARegister";
 function App() {
 	return (
 		<React.Fragment>
+			<Toaster />
 			<header>
 				<Navbar />
 			</header>

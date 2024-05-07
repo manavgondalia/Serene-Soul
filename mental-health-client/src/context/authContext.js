@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -7,6 +9,7 @@ export const AuthContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(
 		JSON.parse(localStorage.getItem("userInfo") || null)
 	);
+	const navigate = useNavigate();
 
 	const login = (inputs) => {
 		axios
@@ -19,9 +22,12 @@ export const AuthContextProvider = ({ children }) => {
 				delete userInfo.message;
 				localStorage.setItem("userInfo", JSON.stringify(userInfo));
 				setCurrentUser(userInfo);
+				toast.success("Login successful!");
+				navigate("/");
 			})
 			.catch((error) => {
 				console.log(error);
+				toast.error("Login failed!");
 			});
 	};
 

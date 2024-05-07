@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+const { useNavigate } = require("react-router-dom");
 
 const StudentRegister = () => {
 	const [formData, setFormData] = useState({
@@ -11,6 +13,8 @@ const StudentRegister = () => {
 		gender: "",
 		contactNumber: "",
 	});
+
+	const navigate = useNavigate();
 
 	const [errors, setErrors] = useState({});
 
@@ -51,14 +55,12 @@ const StudentRegister = () => {
 				)
 				.then((response) => {
 					console.log(response);
-					const data = JSON.stringify(response.data);
-					// remove message from data
-					const userInfo = JSON.parse(data);
-					delete userInfo.message;
-					localStorage.setItem("userInfo", JSON.stringify(userInfo));
+					toast.success("Registration successful!");
+					navigate("/login");
 				})
 				.catch((error) => {
 					console.log(error);
+					toast.error(error.response.data.message.toString());
 				});
 		}
 	};

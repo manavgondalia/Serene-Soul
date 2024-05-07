@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
@@ -37,7 +38,6 @@ const Login = () => {
 			// Submit form data (replace with your submission logic)
 			console.log("Submitting form:", formData);
 			login(formData);
-			navigate("/");
 		}
 	};
 

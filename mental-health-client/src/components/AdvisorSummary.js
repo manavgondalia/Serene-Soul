@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 
 const AdvisorSummary = () => {
-	const { currentUser, logout } = useContext(AuthContext);
+	const { currentUser } = useContext(AuthContext);
 
 	useEffect(() => {
 		console.log(currentUser);
@@ -39,7 +39,7 @@ const AdvisorSummary = () => {
 				setError(error.message);
 				setIsLoading(false);
 			});
-	}, []); // Run only once on component mount
+	}); // Run only once on component mount
 
 	// fetch all questions from backend to display the question text corresponding to ID on hover
 	useEffect(() => {
