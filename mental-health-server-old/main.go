@@ -3,11 +3,12 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"log"
+	"net/http"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-sql-driver/mysql"
-	"log"
-	"net/http"
 )
 
 var db *sql.DB
@@ -24,8 +25,25 @@ type Student struct {
 
 type FormResponse struct {
 	Roll_no           string `json:"rollNumber"`
-	Question_id       string `json:"questionID"`
+	Question_id       int    `json:"questionID"`
 	Question_response string `json:"questionResponse"`
+}
+
+func loginHandler(c *gin.Context) {
+	var loginDetails Student
+
+	if err := c.BindJSON(&loginDetails); err != nil {
+		err := fmt.Errorf("loginHandler %v", err)
+		fmt.Println(err)
+		return
+	}
+
+	if loginDetails.Password == "1234" {
+		token := "dummy_token"
+		c.JSON(http.StatusOK, gin.H{"token": token})
+	} else {
+		c.IndentedJSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
+	}
 }
 
 func dbConnect() {
@@ -105,6 +123,65 @@ func addStudent(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newStudent)
 }
 
+func getFormResponses(c *gin.Context) {
+	rows, err := db.Query("SELECT * FROM form_response ORDER by question_id")
+	if err != nil {
+		err := fmt.Errorf("getFormResponses %v", err)
+		fmt.Println(err)
+		return
+	}
+	defer rows.Close()
+
+	// send response in the following format:
+	/*
+		array of objects where each object has the following format:
+			{ rollNumber: 1, question1: 4, question2: 3, question3: 5 }
+	*/
+
+	var formResponses []FormResponse
+	for rows.Next() {
+		var formResponse FormResponse
+		err := rows.Scan(&formResponse.Roll_no, &formResponse.Question_id, &formResponse.Question_response)
+		if err != nil {
+			err := fmt.Errorf("getFormResponses %v", err)
+			fmt.Println(err)
+			return
+		}
+		formResponses = append(formResponses, formResponse)
+
+	}
+
+	// group by rollNumber
+	var groupedFormResponses = make(map[string]map[int]string)
+	for _, formResponse := range formResponses {
+		if groupedFormResponses[formResponse.Roll_no] == nil {
+			groupedFormResponses[formResponse.Roll_no] = make(map[int]string)
+		}
+		groupedFormResponses[formResponse.Roll_no][formResponse.Question_id] = formResponse.Question_response
+	}
+
+	var result []map[string]interface{}
+
+	for rollNumber, responses := range groupedFormResponses {
+		entry := make(map[string]interface{})
+
+		// Assign rollNumber first
+		entry["rollNumber"] = rollNumber
+
+		// Assign question responses
+		for questionID, questionResponse := range responses {
+			entry[fmt.Sprintf("%d", questionID)] = questionResponse
+		}
+
+		result = append(result, entry)
+	}
+
+	fmt.Println(groupedFormResponses)
+
+	c.IndentedJSON(http.StatusOK, result)
+
+}
+
 func addFormResponse(c *gin.Context) {
 	var newFormResponse FormResponse
 
@@ -143,6 +220,13 @@ func main() {
 	router.POST("/student-register", addStudent)
 	router.GET("/students", getStudents)
 	router.POST("/form-response", addFormResponse)
+	router.GET("/form-response", getFormResponses)
+	router.POST("/login", loginHandler)
 
 	router.Run("localhost:8080")
 }
+
+/*
+
+
+ */

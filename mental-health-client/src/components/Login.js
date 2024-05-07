@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/authContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
@@ -7,6 +10,10 @@ const Login = () => {
 	});
 
 	const [errors, setErrors] = useState({});
+	const navigate = useNavigate();
+	const { login } = useContext(AuthContext);
+
+	// console.log("how many time", currentUser);
 
 	const handleChange = (event) => {
 		setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -29,12 +36,17 @@ const Login = () => {
 		if (Object.keys(validationErrors).length === 0) {
 			// Submit form data (replace with your submission logic)
 			console.log("Submitting form:", formData);
+			login(formData);
+			navigate("/");
 		}
 	};
 
 	return (
-		<div className="bg-[#A0DEFF] p-4 rounded-lg mx-auto max-w-80 flex justify-center font-grostek">
-			<form className="space-y-2 w-full" onSubmit={handleSubmit}>
+		<div className="bg-gradient-to-l from-gray-100 via-fuchsia-100 to-stone-100 flex justify-center font-grostek h-screen">
+			<form
+				className="rounded-lg max-w-80 px-4 py-8 mx-auto h-fit mt-40 space-y-2 border-2 border-black bg-white"
+				onSubmit={handleSubmit}
+			>
 				<div className="flex flex-col">
 					<label htmlFor="email" className="text-sm font-medium mb-2">
 						Email (Required)
@@ -73,9 +85,15 @@ const Login = () => {
 					)}
 				</div>
 				<div className="flex flex-col">
-					<button className="bg-[#FEAE71] py-2 px-4 rounded-full">
+					<button className="bg-[#FEAE71] py-2 px-4 rounded-full mt-2">
 						<span>Login</span>
 					</button>
+					<span className="text-center mt-2">
+						New user? Register as{" "}
+						<Link className="underline" to="/register-student">
+							Student
+						</Link>{" "}
+					</span>
 				</div>
 			</form>
 		</div>

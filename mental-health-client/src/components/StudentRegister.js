@@ -1,6 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 
-const Register = () => {
+const StudentRegister = () => {
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
@@ -43,12 +44,31 @@ const Register = () => {
 		if (Object.keys(validationErrors).length === 0) {
 			// Submit form data (replace with your submission logic)
 			console.log("Submitting form:", formData);
+			axios
+				.post(
+					`${process.env.REACT_APP_SERVER_URL}/auth/register-student`,
+					formData
+				)
+				.then((response) => {
+					console.log(response);
+					const data = JSON.stringify(response.data);
+					// remove message from data
+					const userInfo = JSON.parse(data);
+					delete userInfo.message;
+					localStorage.setItem("userInfo", JSON.stringify(userInfo));
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		}
 	};
 
 	return (
-		<div className="bg-[#A0DEFF] p-6 rounded-lg mx-auto max-w-lg flex justify-center font-grostek">
-			<form className="space-y-2 w-full" onSubmit={handleSubmit}>
+		<div className="bg-gradient-to-br from-amber-50 to-green-100 h-screen flex justify-center font-grostek ">
+			<form
+				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-white"
+				onSubmit={handleSubmit}
+			>
 				<div className="flex justify-between">
 					<div className="flex flex-col">
 						<label htmlFor="email" className="text-sm font-medium mb-2">
@@ -170,14 +190,14 @@ const Register = () => {
 							className="w-56 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
 						>
 							<option value="">Select...</option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-							<option value="other">Other</option>
+							<option value="M">Male</option>
+							<option value="F">Female</option>
+							<option value="O">Other</option>
 						</select>
 					</div>
 				</div>
 				<div className="flex flex-col">
-					<button className="bg-[#FEAE71] py-2 px-4 rounded-full">
+					<button className="mt-2 bg-[#FEAE71] py-2 px-4 rounded-full">
 						<span>Register</span>
 					</button>
 				</div>
@@ -186,4 +206,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default StudentRegister;

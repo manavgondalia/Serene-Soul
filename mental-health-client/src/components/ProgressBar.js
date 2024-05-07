@@ -5,9 +5,9 @@ const ProgressBar = ({ currentQuestionIndex, totalQuestions }) => {
 	const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
 
 	return (
-		<div className="mb-4 w-full bg-gray-200 rounded-full">
+		<div className="mb-8 w-full bg-white rounded-full">
 			<div
-				className="h-2 bg-blue-500 rounded-full"
+				className="h-4 bg-yellow-300 rounded-full"
 				style={{ width: `${progress}%` }}
 			></div>
 		</div>

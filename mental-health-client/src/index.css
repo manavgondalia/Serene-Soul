@@ -20,3 +20,8 @@ code {
     font-family: "grostek";
     src: url("../public/assets/fonts/HostGrotesk-Medium.ttf");
 }
+
+@font-face {
+    font-family: "zodiak";
+    src: url("../public/assets/fonts/Zodiak-Regular.otf")
+}
