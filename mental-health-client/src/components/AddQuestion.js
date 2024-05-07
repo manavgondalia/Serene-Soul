@@ -51,10 +51,10 @@ const AddQuestion = () => {
 
 	return (
 		<div className="flex h-screen bg-gradient-to-bl from-blue-200 to-fuchsia-300">
-			<div className="flex flex-col mx-auto mt-24 h-fit p-2 rounded-lg bg-slate-100">
+			<div className="flex flex-col mx-auto mt-24 h-fit p-4 rounded-lg bg-[#CAF4FF]">
 				<form
 					onSubmit={handleSubmit}
-					className="bg-[#FFEC9E] p-4 rounded-lg w-1/2 mx-auto font-grostek mt-4"
+					className="bg-[#FFEC9E] p-4 rounded-lg w-1/2 mx-auto font-cabinet mt-2"
 				>
 					<div className="mb-4">
 						<label htmlFor="question" className="block text-md">
@@ -65,7 +65,7 @@ const AddQuestion = () => {
 							name="question"
 							value={newQuestion}
 							onChange={handleInputChange}
-							className="p-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+							className="p-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
 							rows="3"
 							placeholder="Enter your new question..."
 							required
@@ -78,7 +78,7 @@ const AddQuestion = () => {
 						Add Question
 					</button>
 				</form>
-				<div className="max-w-3xl mx-auto h-80 overflow-scroll mt-8">
+				<div className="max-w-3xl mx-auto h-80 overflow-scroll mt-4 font-cabinet">
 					<table className="w-full">
 						<thead>
 							<tr className="bg-gray-300">

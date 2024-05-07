@@ -288,7 +288,7 @@ const QuestionIterator = () => {
 	};
 
 	return (
-		<div className="h-screen font-grostek bg-gradient-to-br from-red-100 to-amber-100 flex">
+		<div className="h-screen font-cabinet bg-gradient-to-br from-red-100 to-amber-100 flex">
 			{isLoading ? (
 				<div className="h-fit mt-20 mx-auto w-2/5 flex flex-col">
 					Loading...

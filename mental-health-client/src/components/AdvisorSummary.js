@@ -90,7 +90,10 @@ const AdvisorSummary = () => {
 	};
 
 	return (
-		<div className="h-screen font-grostek flex bg-gradient-to-l from-green-200 to-teal-200">
+		<div
+			className="h-screen font-cabinet
+		 flex bg-gradient-to-l from-green-200 to-teal-200"
+		>
 			{isLoading === true ? (
 				<p>Loading data...</p>
 			) : (

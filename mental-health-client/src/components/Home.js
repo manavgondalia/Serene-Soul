@@ -8,8 +8,10 @@ const Home = () => {
 			<h1 className="text-7xl font-black text-white mb-4 font-zodiak">
 				Serene Soul
 			</h1>
-			<p className="text-lg text-white text-center max-w-md mb-8 font-briston">
-				Your go-to destination for improving mental health and well-being.
+			<p className="text-xl text-white text-center max-w-md mb-8 font-cabinet">
+				Your well-being matters. Fill this completely anonymous form to help us
+				understand you.<br></br> Be assured that your responses will be kept
+				confidential.
 			</p>
 		</div>
 	);

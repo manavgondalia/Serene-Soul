@@ -66,14 +66,14 @@ const FARegister = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-br from-amber-50 to-green-100 h-screen flex justify-center font-grostek ">
+		<div className="bg-gradient-to-tr from-rose-500 to-indigo-500 h-screen flex justify-center font-cabinet ">
 			<form
-				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-white"
+				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-[#F6E9B2]"
 				onSubmit={handleSubmit}
 			>
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="email" className="text-sm font-medium mb-2">
+						<label htmlFor="email" className="text-lg font-medium mb-2">
 							Email (Required)
 						</label>
 						<input
@@ -87,11 +87,11 @@ const FARegister = () => {
 							}`}
 						/>
 						{errors.email && (
-							<span className="text-red-500 text-sm">{errors.email}</span>
+							<span className="text-red-500 text-lg">{errors.email}</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="name" className="text-sm font-medium mb-2">
+						<label htmlFor="name" className="text-lg font-medium mb-2">
 							Name
 						</label>
 						<input
@@ -107,7 +107,7 @@ const FARegister = () => {
 
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="password" className="text-sm font-medium mb-2">
+						<label htmlFor="password" className="text-lg font-medium mb-2">
 							Password (Required)
 						</label>
 						<input
@@ -121,11 +121,11 @@ const FARegister = () => {
 							}`}
 						/>
 						{errors.password && (
-							<span className="text-red-500 text-sm">{errors.password}</span>
+							<span className="text-red-500 text-lg">{errors.password}</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="course" className="text-sm font-medium mb-2">
+						<label htmlFor="course" className="text-lg font-medium mb-2">
 							Course (Required)
 						</label>
 						<input
@@ -139,14 +139,14 @@ const FARegister = () => {
 							}`}
 						/>
 						{errors.course && (
-							<span className="text-red-500 text-sm">{errors.course}</span>
+							<span className="text-red-500 text-lg">{errors.course}</span>
 						)}
 					</div>
 				</div>
 
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="batch" className="text-sm font-medium mb-2">
+						<label htmlFor="batch" className="text-lg font-medium mb-2">
 							Batch (Required)
 						</label>
 						<input
@@ -160,11 +160,11 @@ const FARegister = () => {
 							}`}
 						/>
 						{errors.batch && (
-							<span className="text-red-500 text-sm">{errors.batch}</span>
+							<span className="text-red-500 text-lg">{errors.batch}</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="branch" className="text-sm font-medium mb-2">
+						<label htmlFor="branch" className="text-lg font-medium mb-2">
 							Branch (Required)
 						</label>
 						<select
@@ -183,7 +183,7 @@ const FARegister = () => {
 							<option value="ME">ME</option>
 						</select>
 						{errors.branch && (
-							<span className="text-red-500 text-sm">{errors.branch}</span>
+							<span className="text-red-500 text-lg">{errors.branch}</span>
 						)}
 					</div>
 				</div>

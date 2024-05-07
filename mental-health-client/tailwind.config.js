@@ -6,6 +6,8 @@ module.exports = {
 			fontFamily: {
 				grostek: ["grostek", "sans-serif"],
 				zodiak: ["zodiak", "sans-serif"],
+				lts: ["lts", "sans-serif"],
+				cabinet: ["cabinet", "sans-serif"],
 			},
 		},
 	},

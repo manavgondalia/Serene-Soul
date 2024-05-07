@@ -26,7 +26,7 @@ const QuestionCard = ({ questionText, onOptionSelect }) => {
 	};
 
 	return (
-		<div className="bg-gradient-to-l from-yellow-300 to-teal-200 shadow-md rounded-xl p-4 w-full mx-auto h-64  font-grostek">
+		<div className="bg-gradient-to-l from-yellow-300 to-teal-200 shadow-md rounded-xl p-4 w-full mx-auto h-64  font-cabinet">
 			<div className="p-1 box-border h-full border-2 border-black flex flex-col place-content-around">
 				<h2 className="text-xl font-bold mb-2 text-center h-14 px-2">
 					{questionText}

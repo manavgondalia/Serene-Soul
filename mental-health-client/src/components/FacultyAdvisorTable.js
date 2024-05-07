@@ -67,8 +67,8 @@ const FacultyAdvisorTable = () => {
 	};
 
 	return (
-		<div className="h-screen flex bg-gradient-to-bl from-yellow-300 to-teal-300">
-			<div className="max-w-3xl mx-auto mt-28 h-fit p-4 bg-[#CAF4FF] rounded-xl">
+		<div className="h-screen flex bg-gradient-to-bl from-cyan-400 to-fuchsia-700">
+			<div className="max-w-3xl mx-auto mt-28 h-fit p-4 bg-[#CAF4FF] rounded-xl font-cabinet">
 				<table className="w-full border-collapse border-2 border-black mt-8 table-fixed">
 					<thead>
 						<tr className="bg-gray-300">
@@ -182,7 +182,7 @@ const FacultyAdvisorTable = () => {
 				</table>
 				<div className="flex justify-end mt-4">
 					<button
-						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
 						onClick={handleAddNew}
 					>
 						Add New Faculty Advisor

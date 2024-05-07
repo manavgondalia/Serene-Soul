@@ -14,7 +14,7 @@ const Navbar = () => {
 
 	return (
 		<div className="w-full">
-			<nav className="flex items-center justify-between flex-wrap p-2 font-grostek bg-[#FFC55A] top-0 w-full fixed">
+			<nav className="flex items-center justify-between flex-wrap p-2 font-cabinet bg-[#FFC55A] top-0 w-full fixed">
 				<Link
 					to="/"
 					className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72"
@@ -47,7 +47,7 @@ const Navbar = () => {
 						isOpen ? "block" : "hidden"
 					}`}
 				>
-					<div className="text-sm lg:flex-grow flex justify-end">
+					<div className="text-lg lg:flex-grow flex justify-end">
 						{currentUser ? (
 							<span
 								href="/#"
@@ -109,7 +109,7 @@ const Navbar = () => {
 					</div>
 					<Link to="/login">
 						<button
-							className="inline-flex items-center bg-[#00215E] border-0 py-2 px-4 text-white"
+							className="inline-flex items-center bg-[#00215E] border-0 py-2 px-4 text-white text-lg"
 							onClick={currentUser ? logout : null}
 						>
 							{currentUser ? "Logout" : "Login"}

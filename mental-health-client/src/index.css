@@ -25,3 +25,13 @@ code {
     font-family: "zodiak";
     src: url("../public/assets/fonts/Zodiak-Regular.otf")
 }
+
+@font-face {
+    font-family: "lts";
+    src: url("../public/assets/fonts/LTSuperior-Regular.otf")
+}
+
+@font-face {
+    font-family: "cabinet";
+    src: url("../public/assets/fonts/CabinetGrotesk-Medium.otf")
+}

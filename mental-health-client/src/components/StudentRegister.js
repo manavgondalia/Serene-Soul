@@ -64,14 +64,14 @@ const StudentRegister = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-br from-amber-50 to-green-100 h-screen flex justify-center font-grostek ">
+		<div className="bg-gradient-to-br from-amber-50 to-green-100 h-screen flex justify-center font-cabinet ">
 			<form
 				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-white"
 				onSubmit={handleSubmit}
 			>
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="email" className="text-sm font-medium mb-2">
+						<label htmlFor="email" className="text-lg font-medium mb-2">
 							Email (Required)
 						</label>
 						<input
@@ -85,11 +85,11 @@ const StudentRegister = () => {
 							}`}
 						/>
 						{errors.email && (
-							<span className="text-red-500 text-sm">{errors.email}</span>
+							<span className="text-red-500 text-lg">{errors.email}</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="rolNo" className="text-sm font-medium mb-2">
+						<label htmlFor="rolNo" className="text-lg font-medium mb-2">
 							Roll Number (Required)
 						</label>
 						<input
@@ -101,12 +101,12 @@ const StudentRegister = () => {
 							className="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
 						/>
 						{errors.rollNumber && (
-							<span className="text-red-500 text-sm">{errors.rollNumber}</span>
+							<span className="text-red-500 text-lg">{errors.rollNumber}</span>
 						)}
 					</div>
 				</div>
 				<div className="flex flex-col">
-					<label htmlFor="password" className="text-sm font-medium mb-2">
+					<label htmlFor="password" className="text-lg font-medium mb-2">
 						Password (Required)
 					</label>
 					<input
@@ -120,13 +120,13 @@ const StudentRegister = () => {
 						}`}
 					/>
 					{errors.password && (
-						<span className="text-red-500 text-sm">{errors.password}</span>
+						<span className="text-red-500 text-lg">{errors.password}</span>
 					)}
 				</div>
 
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="firstName" className="text-sm font-medium mb-2">
+						<label htmlFor="firstName" className="text-lg font-medium mb-2">
 							First Name (Required)
 						</label>
 						<input
@@ -140,11 +140,11 @@ const StudentRegister = () => {
 							}`}
 						/>
 						{errors.firstName && (
-							<span className="text-red-500 text-sm">{errors.firstName}</span>
+							<span className="text-red-500 text-lg">{errors.firstName}</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="lastName" className="text-sm font-medium mb-2">
+						<label htmlFor="lastName" className="text-lg font-medium mb-2">
 							Last Name
 						</label>
 						<input
@@ -159,7 +159,7 @@ const StudentRegister = () => {
 				</div>
 				<div className="flex justify-between">
 					<div className="flex flex-col">
-						<label htmlFor="contactNumber" className="text-sm font-medium mb-2">
+						<label htmlFor="contactNumber" className="text-lg font-medium mb-2">
 							Contact Number
 						</label>
 						<input
@@ -173,13 +173,13 @@ const StudentRegister = () => {
 							className="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
 						/>
 						{errors.contactNumber && (
-							<span className="text-red-500 text-sm">
+							<span className="text-red-500 text-lg">
 								{errors.contactNumber}
 							</span>
 						)}
 					</div>
 					<div className="flex flex-col">
-						<label htmlFor="gender" className="text-sm font-medium mb-2">
+						<label htmlFor="gender" className="text-lg font-medium mb-2">
 							Gender
 						</label>
 						<select

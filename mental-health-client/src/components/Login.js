@@ -42,13 +42,13 @@ const Login = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-l from-gray-100 via-fuchsia-100 to-stone-100 flex justify-center font-grostek h-screen">
+		<div className="bg-gradient-to-l from-gray-100 via-fuchsia-100 to-stone-100 flex justify-center font-cabinet h-screen">
 			<form
-				className="rounded-lg max-w-80 px-4 py-8 mx-auto h-fit mt-40 space-y-2 border-2 border-black bg-white"
+				className="rounded-lg w-96 px-4 py-8 mx-auto h-fit mt-40 space-y-2 border-2 border-black bg-white"
 				onSubmit={handleSubmit}
 			>
 				<div className="flex flex-col">
-					<label htmlFor="email" className="text-sm font-medium mb-2">
+					<label htmlFor="email" className="text-lg font-medium mb-2">
 						Email (Required)
 					</label>
 					<input
@@ -62,12 +62,12 @@ const Login = () => {
 						}`}
 					/>
 					{errors.email && (
-						<span className="text-red-500 text-sm">{errors.email}</span>
+						<span className="text-red-500 text-lg">{errors.email}</span>
 					)}
 				</div>
 
 				<div className="flex flex-col">
-					<label htmlFor="password" className="text-sm font-medium mb-2">
+					<label htmlFor="password" className="text-lg font-medium mb-2">
 						Password (Required)
 					</label>
 					<input
@@ -81,7 +81,7 @@ const Login = () => {
 						}`}
 					/>
 					{errors.password && (
-						<span className="text-red-500 text-sm">{errors.password}</span>
+						<span className="text-red-500 text-lg">{errors.password}</span>
 					)}
 				</div>
 				<div className="flex flex-col">
