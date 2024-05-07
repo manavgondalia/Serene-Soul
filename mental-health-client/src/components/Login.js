@@ -42,9 +42,9 @@ const Login = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-l from-gray-100 via-fuchsia-100 to-stone-100 flex justify-center font-cabinet h-screen">
+		<div className="bg-gradient-to-tl from-green-400 to-blue-500 flex justify-center font-cabinet h-screen">
 			<form
-				className="rounded-lg w-96 px-4 py-8 mx-auto h-fit mt-40 space-y-2 border-2 border-black bg-white"
+				className="rounded-lg w-96 px-4 py-8 mx-auto h-fit mt-40 space-y-2 border-2 border-black bg-slate-200 shadow-md"
 				onSubmit={handleSubmit}
 			>
 				<div className="flex flex-col">

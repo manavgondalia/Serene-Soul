@@ -10,8 +10,11 @@ const ViewMyResponse = () => {
 
 	const { currentUser } = useContext(AuthContext);
 
-	// fetch roll number from email (email is of the form name_rollno@domain)
-	const rollNumber = currentUser.email.split("_")[1].split("@")[0];
+	// fetch roll number from email (email is of the form name_rollno@domain) and capitalize everything
+	const rollNumber = currentUser.email
+		.split("_")[1]
+		.split("@")[0]
+		.toUpperCase();
 
 	const colorOptions = [
 		"bg-red-200",
@@ -36,12 +39,13 @@ const ViewMyResponse = () => {
 			)
 			.then((response) => {
 				setResponses(response.data);
+				console.log(response.data);
 				setIsLoadingA(false);
 			})
 			.catch((error) => {
 				console.error("Error fetching student responses:", error);
 			});
-	}, []);
+	}, [rollNumber]);
 
 	useEffect(() => {
 		axios
@@ -62,8 +66,8 @@ const ViewMyResponse = () => {
 	}, []);
 
 	return (
-		<div className="h-screen flex bg-gradient-to-l from-red-200 to-lime-100">
-			<div className="max-w-4xl mx-auto h-96 overflow-scroll mt-32 p-4 bg-gray-100 rounded-xl ">
+		<div className="h-screen flex bg-gradient-to-bl from-fuchsia-300 to-pink-500 font-cabinet">
+			<div className="max-w-4xl mx-auto h-2/3 overflow-scroll mt-36 p-4 bg-gray-100 rounded-xl ">
 				{isLoadingA === true || isLoadingB === true ? (
 					<h1>Loading...</h1>
 				) : (
@@ -89,10 +93,15 @@ const ViewMyResponse = () => {
 										<td className="border border-gray-300 px-4 py-2">
 											<span
 												className={`px-2 py-2 rounded-md text-sm border-1 ${
-													colorOptions[response.question_response - 1]
+													colorOptions[response.question_response - 1] ===
+													undefined
+														? "bg-gray-200"
+														: colorOptions[response.question_response - 1]
 												}`}
 											>
-												{options[response.question_response - 1]}
+												{options[response.question_response - 1] === undefined
+													? response.question_response
+													: options[response.question_response - 1]}
 											</span>
 										</td>
 									</tr>

@@ -233,6 +233,7 @@ const QuestionIterator = () => {
 		axios
 			.get(`${process.env.REACT_APP_SERVER_URL}/student/questions`)
 			.then((response) => {
+				console.log(response.data);
 				setQuestionSourceData(response.data);
 				setIsLoading(false);
 			})
@@ -308,6 +309,7 @@ const QuestionIterator = () => {
 					<QuestionCard
 						questionText={questionSourceData[currentIndex].question_text}
 						onOptionSelect={handleResponseChange}
+						questionType={questionSourceData[currentIndex].question_type}
 					/>
 					<div className="flex justify-around mt-8">
 						<button

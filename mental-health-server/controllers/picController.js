@@ -3,11 +3,12 @@ const db = require("../db");
 const bcrypt = require("bcryptjs");
 
 const addQuestion = (req, res) => {
-	const { questionText } = req.body;
+	const { questionText, questionType } = req.body;
 	console.log(questionText);
-	const sql = "INSERT INTO questions (question_text) VALUES (?)";
+	const sql =
+		"INSERT INTO questions (question_text, question_type) VALUES (?, ?)";
 
-	db.query(sql, [questionText], (err, result) => {
+	db.query(sql, [questionText, questionType], (err, result) => {
 		if (err) {
 			return res.status(500).json({
 				error: err.message,

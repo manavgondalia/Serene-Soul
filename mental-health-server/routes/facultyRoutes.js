@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 	res.send("Welcome faculty advisor!");
 });
 
-router.get("/form-responses", getFormResponses);
+router.post("/form-responses", getFormResponses);
 router.get("/show-questions", showQuestions); // for the hover
 
 module.exports = router;

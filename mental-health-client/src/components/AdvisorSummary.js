@@ -1,7 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/authContext";
 
 const AdvisorSummary = () => {
+	const { currentUser, logout } = useContext(AuthContext);
+
+	useEffect(() => {
+		console.log(currentUser);
+	}, [currentUser]);
+
 	const [data, setData] = useState(null);
 	const [questionData, setQuestionData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +21,10 @@ const AdvisorSummary = () => {
 	useEffect(() => {
 		// Fetch data from the backend
 		axios
-			.get(`${process.env.REACT_APP_SERVER_URL}/faculty-advisor/form-responses`)
+			.post(
+				`${process.env.REACT_APP_SERVER_URL}/faculty-advisor/form-responses`,
+				{ email: currentUser.email }
+			)
 			.then((response) => {
 				console.log("this is from useEffect", response.data);
 				let arrangeData = response.data;
@@ -42,7 +52,7 @@ const AdvisorSummary = () => {
 				response.data.forEach((question) => {
 					questionDict[question.question_id] = question.question_text;
 				});
-				console.log(questionDict);
+				// console.log(questionDict);
 				setQuestionData(questionDict);
 				setIsLoadingTooltip(false);
 			})
@@ -97,7 +107,7 @@ const AdvisorSummary = () => {
 			{isLoading === true ? (
 				<p>Loading data...</p>
 			) : (
-				<div className="max-w-[60rem] mx-auto flex flex-col justify-center h-2/3 text-center mt-24 rounded-xl p-4 bg-slate-50">
+				<div className="max-w-[60rem] mx-auto flex flex-col justify-center h-4/5 text-center mt-24 rounded-xl p-4 bg-slate-50">
 					<button
 						onClick={generateCsv}
 						className="w-36 mx-auto mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -132,7 +142,7 @@ const AdvisorSummary = () => {
 												) : (
 													<span className="group">
 														{"Question " + question}
-														<span className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-md whitespace-nowrap">
+														<span className="z-10 hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-md whitespace-nowrap">
 															{questionData[question]}
 														</span>
 													</span>

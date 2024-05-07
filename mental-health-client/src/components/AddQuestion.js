@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const AddQuestion = () => {
 	const [newQuestion, setNewQuestion] = useState("");
 	const [existingQuestions, setExistingQuestions] = useState([]);
+	const [questionType, setQuestionType] = useState("1");
 
 	useEffect(() => {
 		// Fetch existing questions from the server
@@ -17,6 +18,10 @@ const AddQuestion = () => {
 			});
 	}, [existingQuestions]);
 
+	const handleQuestionTypeChange = (e) => {
+		setQuestionType(e.target.value);
+	};
+
 	const handleInputChange = (e) => {
 		setNewQuestion(e.target.value);
 	};
@@ -29,6 +34,7 @@ const AddQuestion = () => {
 			axios
 				.post(`${process.env.REACT_APP_SERVER_URL}/pic/add-question`, {
 					questionText: newQuestion,
+					questionType: questionType,
 				})
 				.then((response) => {
 					console.log(response);
@@ -57,9 +63,33 @@ const AddQuestion = () => {
 					className="bg-[#FFEC9E] p-4 rounded-lg w-1/2 mx-auto font-cabinet mt-2"
 				>
 					<div className="mb-4">
-						<label htmlFor="question" className="block text-md">
-							New Question:
-						</label>
+						<div className="flex justify-around">
+							<label htmlFor="question" className="text-md">
+								New Question:
+							</label>
+							<div className="flex items-center space-x-4">
+								<label className="inline-flex items-center">
+									<input
+										type="radio"
+										value="1"
+										checked={questionType === "1"}
+										onChange={handleQuestionTypeChange}
+										className="form-radio h-5 w-5 text-gray-600 border-gray-300 focus:ring-gray-500"
+									/>
+									<span className="ml-2 text-gray-700">Choice</span>
+								</label>
+								<label className="inline-flex items-center">
+									<input
+										type="radio"
+										value="2"
+										checked={questionType === "2"}
+										onChange={handleQuestionTypeChange}
+										className="form-radio h-5 w-5 text-gray-600 border-gray-300 focus:ring-gray-500"
+									/>
+									<span className="ml-2 text-gray-700">Text</span>
+								</label>
+							</div>
+						</div>
 						<textarea
 							id="question"
 							name="question"

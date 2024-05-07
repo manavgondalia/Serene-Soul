@@ -64,9 +64,9 @@ const StudentRegister = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-br from-amber-50 to-green-100 h-screen flex justify-center font-cabinet ">
+		<div className="bg-gradient-to-bl from-fuchsia-500 to-red-500 h-screen flex justify-center font-cabinet ">
 			<form
-				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-white"
+				className="max-w-lg h-fit space-y-2 w-full p-6 rounded-lg mx-auto mt-40 border-2 border-black bg-slate-200"
 				onSubmit={handleSubmit}
 			>
 				<div className="flex justify-between">
