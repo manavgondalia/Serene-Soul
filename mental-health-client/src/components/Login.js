@@ -1,8 +1,6 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
@@ -11,7 +9,6 @@ const Login = () => {
 	});
 
 	const [errors, setErrors] = useState({});
-	const navigate = useNavigate();
 	const { login } = useContext(AuthContext);
 
 	// console.log("how many time", currentUser);

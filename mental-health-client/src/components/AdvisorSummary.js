@@ -13,6 +13,7 @@ const AdvisorSummary = () => {
 	const [questionData, setQuestionData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isLoadingTooltip, setIsLoadingTooltip] = useState(true);
+	// eslint-disable-next-line
 	const [error, setError] = useState(null);
 	const [csvData, setCsvData] = useState("");
 	const [searchRollNumber, setSearchRollNumber] = useState("");
@@ -191,7 +192,7 @@ const AdvisorSummary = () => {
 					{csvData && (
 						<a
 							href={csvData}
-							download="student_data.csv"
+							download={"well_being_" + currentUser.email + ".csv"}
 							className="w-36 mx-auto mt-4 block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 						>
 							Download CSV
