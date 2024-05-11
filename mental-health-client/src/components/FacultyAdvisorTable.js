@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FacultyAdvisorTable = () => {
 	const [facultyAdvisors, setFacultyAdvisors] = useState([]);
-
+	const navigate = useNavigate();
 	useEffect(() => {
 		// Fetch faculty advisors from the server
 		fetch(`${process.env.REACT_APP_SERVER_URL}/pic/show-fa`)
@@ -40,6 +41,7 @@ const FacultyAdvisorTable = () => {
 	};
 
 	const handleAddNew = () => {
+		navigate("/register-fa");
 		setShowAddForm(true);
 	};
 

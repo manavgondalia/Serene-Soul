@@ -12,6 +12,7 @@ import ViewMyResponse from "./components/ViewMyResponse";
 import { Route, Routes } from "react-router-dom";
 import FARegister from "./components/FARegister";
 import { Toaster } from "react-hot-toast";
+import PrivateRoute from "./utils/PrivateRoute";
 
 // const summaryData = [
 // 	{ rollNumber: 1, question1: 4, question2: 3, question3: 5 },
@@ -31,18 +32,27 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} exact />
 					<Route path="/register-student" element={<StudentRegister />} exact />
-					<Route path="/register-fa" element={<FARegister />} exact />
 					<Route path="/login" element={<Login />} exact />
-					<Route path="/pic-add-question" element={<AddQuestion />} exact />
-					<Route path="/view-my-response" element={<ViewMyResponse />} exact />
-					<Route
-						path="/faculty-advisor-details"
-						element={<FacultyAdvisorTable />}
-						exact
-					/>
-					<Route path="/fill-the-form" element={<QuestionIterator />} exact />
-
-					<Route path="/advisor-summary" element={<AdvisorSummary />} exact />
+					<Route path="/" element={<PrivateRoute role={3} />}>
+						<Route path="/pic-add-question" element={<AddQuestion />} exact />
+						<Route path="/register-fa" element={<FARegister />} exact />
+						<Route
+							path="/faculty-advisor-details"
+							element={<FacultyAdvisorTable />}
+							exact
+						/>
+					</Route>
+					<Route path="/" element={<PrivateRoute role={2} />}>
+						<Route path="/advisor-summary" element={<AdvisorSummary />} exact />
+					</Route>
+					<Route path="/" element={<PrivateRoute role={1} />}>
+						<Route
+							path="/view-my-response"
+							element={<ViewMyResponse />}
+							exact
+						/>
+						<Route path="/fill-the-form" element={<QuestionIterator />} exact />
+					</Route>
 				</Routes>
 			</main>
 

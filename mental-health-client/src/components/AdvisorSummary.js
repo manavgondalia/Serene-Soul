@@ -40,7 +40,7 @@ const AdvisorSummary = () => {
 				setError(error.message);
 				setIsLoading(false);
 			});
-	}); // Run only once on component mount
+	}, [currentUser.email]); // Run only once on component mount
 
 	// fetch all questions from backend to display the question text corresponding to ID on hover
 	useEffect(() => {
