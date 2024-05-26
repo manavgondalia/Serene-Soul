@@ -1,4 +1,4 @@
-![readme_heading](https://github.com/manavgondalia/Serene-Soul/assets/72291135/ecc56c75-b7c9-4e31-88cd-a513f77209ea)
+![readme_heading](https://github.com/manavgondalia/Serene-Soul/assets/72291135/0e7a969c-1985-4763-94c7-56216c121897)
 
 SereneSoul is a web-based student friendly platform to collect responses to mental health survey.
 
