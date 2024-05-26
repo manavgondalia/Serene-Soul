@@ -27,5 +27,26 @@ Working demo can be found in [this](https://www.youtube.com/playlist?list=PLKj0q
 4. Hirearchy in data: 3 roles (PIC, Faculty Advisor and Student) for efficient user management.
 5. Pleasing UI: For user retention.
 
+## Usage
+
+Clone this repository and navigate to the project folder.
+
+```bash
+git clone https://github.com/manavgondalia/Serene-Soul.git
+cd Serene-Soul
+```
 
 
+### Run the server
+
+1. Navigate to the server directory using the command `cd mental-health-server`.
+2. Install the dependencies using the command `npm install`.
+3. Start the server in development mode with hot reloading using the command `nodemon server.js`.
+4. The server will be hosted on the port number displayed on the terminal (can be changed with `.env` files).
+
+### Run the client-side
+
+1. Navigate to the client directory from the parent directory using the command `cd mental-health-client`.
+2. Install the dependencies using the command `npm install`.
+3. Start the app using the command `npm run start`.
+4. The app can be accessed on the port number displayed on the terminal.
