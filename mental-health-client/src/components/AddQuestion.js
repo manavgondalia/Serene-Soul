@@ -11,12 +11,13 @@ const AddQuestion = () => {
 		axios
 			.get(`${process.env.REACT_APP_SERVER_URL}/pic/show-questions`)
 			.then((response) => {
+				console.log(response.data);
 				setExistingQuestions(response.data);
 			})
 			.catch((error) => {
 				console.error(error);
 			});
-	}, [existingQuestions]);
+	}, []);
 
 	const handleQuestionTypeChange = (e) => {
 		setQuestionType(e.target.value);

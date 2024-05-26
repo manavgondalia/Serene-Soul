@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/images/serene_soul_circular.png";
+import logo from "../assets/images/serene_soul_circular_temp.png";
 
 const Home = () => {
 	return (

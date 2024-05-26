@@ -17,7 +17,7 @@ const getQuestions = (req, res) => {
 
 const submitSurvey = (req, res) => {
 	const { rollNumber, answers } = req.body;
-	console.log(answers);
+	console.log(rollNumber, answers);
 	const sql =
 		"INSERT INTO form_response (roll_no, question_id, question_response) VALUES (?, ?, ?)";
 

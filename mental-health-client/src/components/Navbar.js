@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import serene_soul_circular from "../assets/images/serene_soul_circular.png";
+import serene_soul_circular from "../assets/images/serene_soul_circular_temp.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
